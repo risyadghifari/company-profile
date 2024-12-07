@@ -112,7 +112,7 @@ export default function HomePage() {
             {/* Left Content */}
             <div className={`md:w-1/2 space-y-6`}>
               <h1 className={`${luckiest.className} text-3xl md:text-6xl font-extrabold text-gray-950 leading-tight`}>
-                COZY OR CHEEKY? WE'VE GOT JUST A THING
+                COZY OR CHEEKY? WE HAVE GOT JUST A THING
               </h1>
               <p className={`text-gray-950 text-1xl ${montserrat.className}`}>
                 Protect your largest investment from unexpected events life may throw your way.

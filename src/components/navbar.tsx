@@ -1,9 +1,7 @@
 "use client"; // Mark this file as a client-side component
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Ojuju } from "next/font/google";
-
-const [navbarBgColor, setNavbarBgColor] = useState("bg-gray-950"); // Default navbar color
 
 const ojuju = Ojuju({
   subsets: ['latin'],
@@ -11,18 +9,10 @@ const ojuju = Ojuju({
   display: 'swap',
 });
 
-useEffect(() => {
-  // Change navbar background color when the user reaches the third slide
-  if (scrollX >= 2 * window.innerWidth) {
-    setNavbarBgColor("bg-blue-600"); // Change to desired color
-  } else {
-    setNavbarBgColor("bg-gray-950"); // Default color
-  }
-}, [scrollX]); // This will run whenever scrollX changes
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false); // State to toggle menu
-  const navbarHeight = 54; // Set your navbar height here (adjust as needed)
 
 
   return (

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Montserrat } from "next/font/google";
+import Image from 'next/image';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -28,10 +29,12 @@ const EventCard: React.FC<EventCardProps> = ({
   return (
     <div className="max-w-xs w-56 rounded-xl overflow-hidden shadow-lg bg-gray-950 transform hover:scale-105 transition-transform duration-300">
       <div className="relative group">
-        <img
+        <Image
           className="w-full h-28 object-cover rounded-t-xl"
           src={imageUrl}
           alt={title}
+          width={0}
+          height={0}
         />
         <button className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white text-xs py-1 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           View Events
