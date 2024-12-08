@@ -7,6 +7,7 @@ import { Montserrat } from "next/font/google";
 import { Luckiest_Guy } from "next/font/google";
 import EventSlider from "@/components/eventCard";
 import ScrollProgressBar from "@/components/scrollBarProgress";
+import MovingCard from "@/components/movingCard";
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -30,24 +31,29 @@ export default function HomePage() {
   const [scrollX, setScrollX] = useState(0); // State to track horizontal scroll
 
   useEffect(() => {
-    const SCROLL_SPEED = window.innerWidth < 768 ? 2 : 5; // Adjust scroll speed based on screen width
+    const SCROLL_SPEED_MOUSE = window.innerWidth < 768 ? 2 : 5; // Default scroll speed for mouse
+    const SCROLL_SPEED_TOUCHPAD = 10; // Faster scroll speed for touchpad
     const SMOOTHING_FACTOR = 0.4;
-
+  
     const handleScroll = (event: WheelEvent) => {
       const container = scrollContainerRef.current;
       if (container) {
+        // Detecting if it's a touchpad (deltaY is small)
+        const isTouchpad = Math.abs(event.deltaY) < 100; // If deltaY is small, it's likely a touchpad
+        const SCROLL_SPEED = isTouchpad ? SCROLL_SPEED_TOUCHPAD : SCROLL_SPEED_MOUSE;
+  
         const newScrollLeft = container.scrollLeft + event.deltaY * SCROLL_SPEED;
         container.scrollLeft = container.scrollLeft + (newScrollLeft - container.scrollLeft) * SMOOTHING_FACTOR;
         setScrollX(container.scrollLeft); // Update scrollX value
         event.preventDefault();
       }
     };
-
+  
     const container = scrollContainerRef.current;
     if (container) {
       container.addEventListener("wheel", handleScroll, { passive: false });
     }
-
+  
     return () => {
       if (container) {
         container.removeEventListener("wheel", handleScroll);
@@ -160,13 +166,33 @@ export default function HomePage() {
 
         </div>
 
-        {/* Third Slide */}
-        <div
-          className="bg-gray-950 flex items-center justify-center"
-          style={{ flex: "0 0 100vw" }}
-        >
-      
-        </div>
+      {/* Third Slide */}
+<div
+  className="bg-gray-950"
+  style={{ flex: "0 0 100vw" }}
+>
+<MovingCard />
+
+</div>
+
+
+{/* TFooter */}
+<div
+  className="bg-orange-600 flex items-center justify-center"
+  style={{
+    flex: "0 0 20vw", // Adjust width to be smaller for the footer (20% of viewport width)
+    height: "100vh", // Full height to match other slides
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  {/* Footer content */}
+  <p className="text-white font-bold">Footer Content</p>
+</div>
+
+
+
       </div>
       <ScrollProgressBar navbarHeight={0} navbarWidth={0} />
     </div>
