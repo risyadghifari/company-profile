@@ -8,24 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
       animation: {
-        'column-up': 'move-up 18s linear infinite',
-        'column-down': 'move-down 18s linear infinite',
+        "scroll-up": "scrollUp 60s linear infinite",
+        "scroll-down": "scrollDown 60s linear infinite",
       },
       keyframes: {
-        // Animation for moving up (out of view at the top and then reappearing from the bottom)
-        'move-up': {
-          '0%': { transform: 'translateY(0%)' },         // Start position
-          '100%': { transform: 'translateY(-50%)' },   // Move up and disappear
+        scrollUp: {
+          "0%": { transform: "translateY(0%)" },
+          "100%": { transform: "translateY(-50%)" },
         },
-        // Animation for moving down (out of view at the bottom and then reappearing from the top)
-        'move-down': {
-          '0%': { transform: 'translateY(-0%)' },         // Start position
-          '100%': { transform: 'translateY(50%)' },    // Move down and disappear
+        scrollDown: {
+          "0%": { transform: "translateY(-50%)" },
+          "100%": { transform: "translateY(0%)" },
         },
       },
     },

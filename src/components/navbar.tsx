@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Ojuju } from "next/font/google";
+import Link from "next/link";
 
 const ojuju = Ojuju({
   subsets: ['latin'],
@@ -94,7 +95,7 @@ export default function Navbar() {
               Register
             </button>
           </li>
-          <li className="cursor-pointer hover:text-gray-400">Home</li>
+          <Link href="/dashboard">Go to Dashboard</Link>
           <li className="cursor-pointer hover:text-gray-400">About</li>
           <li className="cursor-pointer hover:text-gray-400">Services</li>
           <li className="cursor-pointer hover:text-gray-400">Contact</li>

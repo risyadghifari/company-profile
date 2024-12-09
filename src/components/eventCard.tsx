@@ -95,7 +95,7 @@ const EventSlider: React.FC = () => {
       description: 'Enjoy live music performances.',
       date: '2024-12-10',
       time: '7:00 PM',
-      imageUrl: 'https://via.placeholder.com/150',
+      imageUrl: '/bailey-zindel-jdLgTBOgzYM-unsplash.jpg',
     },
     {
       title: 'Art Exhibition',
@@ -123,7 +123,7 @@ const EventSlider: React.FC = () => {
       description: 'Improve your photography skills.',
       date: '2024-12-30',
       time: '10:00 AM',
-      imageUrl: 'https://via.placeholder.com/150',
+      imageUrl: '/FTR_Header_Rachel.png',
     },
     {
       title: 'Gaming Tournament',

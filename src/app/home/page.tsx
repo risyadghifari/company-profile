@@ -7,7 +7,7 @@ import { Montserrat } from "next/font/google";
 import { Luckiest_Guy } from "next/font/google";
 import EventSlider from "@/components/eventCard";
 import ScrollProgressBar from "@/components/scrollBarProgress";
-import MovingCard from "@/components/movingCard";
+import MovingCard from "@/components/MovingCards";
 
 const montserrat = Montserrat({
   subsets: ['latin'],
